@@ -9,6 +9,7 @@ extends CharacterBody3D
 @export var looking_direction: Vector3 = Vector3.MODEL_FRONT:
 	set = _set_looking_direction;
 
+var input_dir := Vector3.ZERO
 var direction := Vector3.ZERO:
 	get:  return (transform.basis * direction).normalized()
 
@@ -27,4 +28,4 @@ func _set_looking_direction(new_looking_direction: Vector3) -> void:
 	if new_looking_direction == Vector3.ZERO:
 		return
 
-	looking_direction = new_looking_direction
+	looking_direction = new_looking_direction * transform.basis

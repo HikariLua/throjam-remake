@@ -54,6 +54,7 @@ sky = SubResource("Sky_fpptp")
 [node name="DebugLevel" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_3fwjw")]
+transform = Transform3D(0.809017, 0, -0.587785, 0, 1, 0, 0.587785, 0, 0.809017, 0, 0, 0)
 
 [node name="CameraPivot" type="Marker3D" parent="Player"]
 script = ExtResource("2_jo4nt")
