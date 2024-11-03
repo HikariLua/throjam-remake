@@ -4,7 +4,6 @@ extends State
 
 @onready var stateMachine: StateMachine = %StateMachine
 @onready var bodyAnimationPlayer: AnimationPlayer = %BodyAnimationPlayer
-@onready var motionComponent: MotionComponent = %MotionComponent
 
 
 func _physics_update(_delta: float) -> void:
@@ -13,12 +12,12 @@ func _physics_update(_delta: float) -> void:
 	direction.z = Input.get_axis("move_forward", "move_backward")
 	direction.x = Input.get_axis("move_left", "move_right")
 
-	motionComponent.looking_direction = direction
+	character.looking_direction = direction
 
 	character.velocity = Vector3.ZERO
 
 	DirectionalAnimation.play_four_direction(
-		bodyAnimationPlayer, motionComponent.looking_direction, "idle"
+		bodyAnimationPlayer, character.looking_direction, "idle"
 	)
 
 	if direction.x != 0 or direction.z != 0:
