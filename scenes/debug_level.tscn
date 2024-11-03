@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://da4qmdu8aeh7x"]
 
-[ext_resource type="PackedScene" uid="uid://dj2hbu4kn437t" path="res://secenes/player.tscn" id="1_3fwjw"]
-[ext_resource type="Script" path="res://secenes/camera_pivot.gd" id="2_jo4nt"]
-[ext_resource type="Texture2D" uid="uid://b7mhtlyjrrfvv" path="res://assets/Player.png" id="2_x3y5o"]
+[ext_resource type="PackedScene" uid="uid://dj2hbu4kn437t" path="res://scenes/entities/player.tscn" id="1_3fwjw"]
+[ext_resource type="Script" path="res://src/controllers/camera_pivot.gd" id="2_jo4nt"]
+[ext_resource type="Texture2D" uid="uid://b7mhtlyjrrfvv" path="res://assets/player.png" id="2_x3y5o"]
 
 [sub_resource type="Animation" id="Animation_klolw"]
 length = 0.001

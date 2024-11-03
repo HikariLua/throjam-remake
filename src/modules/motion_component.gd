@@ -2,12 +2,11 @@ class_name MotionComponent
 extends Node
 ## This class is used to compose an character body 3D with movement data and
 ## functions.
-
 @export var max_speed: float = 100
 
 ## The direction the model is looking to. It can't be 0 and its axis needs to
 ## be in the range >= -1 and <= 1.
-var looking_direction: Vector3 = Vector3.MODEL_FRONT:
+@export var looking_direction: Vector3 = Vector3.MODEL_FRONT:
 	set = _set_looking_direction;
 
 

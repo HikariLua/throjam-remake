@@ -22,6 +22,10 @@ gdscript/warnings/untyped_declaration=2
 
 project/assembly_name="trhojam-remake"
 
+[global_group]
+
+player="A Player"
+
 [input]
 
 move_forward={
