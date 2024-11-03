@@ -7,16 +7,12 @@ extends State
 
 
 func _physics_update(delta: float) -> void:
-	var direction: Vector3 = Vector3.ZERO
+	character.input_dir.z = Input.get_axis("move_forward", "move_backward")
+	character.input_dir.x = Input.get_axis("move_left", "move_right")
 
-	direction.z = Input.get_axis("move_forward", "move_backward")
-	direction.x = Input.get_axis("move_left", "move_right")
+	character.looking_direction = character.input_dir
 
-	character.looking_direction = direction
-
-	character.velocity = (
-		direction.normalized() * character.max_speed * delta
-	)
+	character.velocity = (character.input_dir * character.max_speed * delta)
 
 	DirectionalAnimation.play_four_direction(
 		bodyAnimationPlayer, character.looking_direction, "run"
@@ -24,5 +20,5 @@ func _physics_update(delta: float) -> void:
 
 	character.move_and_slide()
 
-	if direction.x == 0 and direction.z == 0:
+	if character.input_dir.x == 0 and character.input_dir.z == 0:
 		stateMachine.transition_state(%StateIdle)
