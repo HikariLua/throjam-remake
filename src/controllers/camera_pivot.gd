@@ -1,7 +1,10 @@
 extends Marker3D
 
 
-const ANIM_TIME: float = 1
+func _enter_tree() -> void:
+	Camera.main_pivot = self
+	Camera.main_cam = %MainCamera
+
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_right"):
@@ -13,11 +16,11 @@ func _physics_process(_delta: float) -> void:
 func rotate_cam(value_rad: Vector3) -> void:
 	if %CamAnimPlayer.current_animation == "rotate":
 		return
-		
+
 	var animation: Animation = %CamAnimPlayer.get_animation("rotate")
-	
+
 	animation.track_set_key_value(0, 0, rotation)
-	
+
 	var new_rotation: Vector3 = rotation + value_rad
 	animation.track_set_key_value(0, 1, new_rotation)
 

@@ -14,6 +14,10 @@ config/name="trhojam-remake"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Camera="*res://scenes/controllers/camera_controller.tscn"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=2

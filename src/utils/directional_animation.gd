@@ -38,11 +38,31 @@ static func play_four_direction(
 		"directon out of range"
 	)
 
+	var new_anim: String = get_four_direction(anim_name, direction)
+
+	if animation_player.current_animation == new_anim:
+		return
+
+	assert(
+		animation_player.has_animation(new_anim),
+		"animation player has no animation %s" % new_anim
+	)
+
+	var previous_animation: String = animation_player.current_animation
+	var previous_position: float = animation_player.current_animation_position
+
+	animation_player.play(new_anim)
+
+	if previous_animation.begins_with(anim_name + "_"):
+		animation_player.seek(previous_position)
+
+
+static func get_four_direction(anim_name: String, direction: Vector3) -> String:
+	var new_anim: String = ""
 	for key: String in DIR_DICT.keys():
 		if direction.distance_to(DIR_DICT.get(key)) <= 1:
-			var new_anim: String = anim_name + "_" + key
-			if animation_player.current_animation == new_anim:
-				return
+			new_anim = anim_name + "_" + key
+			break
 
-			animation_player.play(new_anim)
-			return
+	assert(new_anim != "", "invalid direction for animation %s" % anim_name)
+	return new_anim

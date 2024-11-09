@@ -10,7 +10,8 @@ func _physics_update(_delta: float) -> void:
 	entity.input_dir.z = Input.get_axis("move_forward", "move_backward")
 	entity.input_dir.x = Input.get_axis("move_left", "move_right")
 
-	entity.direction = entity.input_dir
+	entity.direction = entity.relative_input_dir
+
 	entity.looking_direction = entity.direction
 
 	entity.velocity.x = 0
